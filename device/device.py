@@ -1,15 +1,12 @@
 import ssl
 import paho.mqtt.client as mqtt
 
-
 def on_connect(client, userdata, flags, rc):
     print(f"Connected: {str(rc)}")
     client.subscribe("topic/test")
 
-
 def on_message(client, userdata, msg):
     print(f"{msg.topic} {str(msg.payload)}")
-
 
 client = mqtt.Client()
 client.on_connect = on_connect
